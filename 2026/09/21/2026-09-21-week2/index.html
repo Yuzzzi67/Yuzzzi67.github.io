@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Week2周报（一） | Yuzzzi</title><meta name="author" content="Yuzzzi"><meta name="copyright" content="Yuzzzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一.记录  Linux环境搭建：经历了WSL报错（证书无效）、避开流氓下载站陷阱后，成功使用VirtualBox在Windows上安装了Ubuntu 22.04.5 LTS系统。学会了拍快照（纯净初始状态），掌握了基本的Linux命令（whoami, pwd, ls, sudo apt update）。    Docker环境安装：成功使用 sudo apt install -y docker.i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Week2周报（一）">
+<meta property="og:url" content="https://yuzzzi67.github.io/2026/09/21/2026-09-21-week2/index.html">
+<meta property="og:site_name" content="Yuzzzi">
+<meta property="og:description" content="一.记录  Linux环境搭建：经历了WSL报错（证书无效）、避开流氓下载站陷阱后，成功使用VirtualBox在Windows上安装了Ubuntu 22.04.5 LTS系统。学会了拍快照（纯净初始状态），掌握了基本的Linux命令（whoami, pwd, ls, sudo apt update）。    Docker环境安装：成功使用 sudo apt install -y docker.i">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yuzzzi67.github.io/img/1.png">
+<meta property="article:published_time" content="2026-09-21T20:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-24T14:34:16.109Z">
+<meta property="article:author" content="Yuzzzi">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yuzzzi67.github.io/img/1.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Week2周报（一）",
+  "url": "https://yuzzzi67.github.io/2026/09/21/2026-09-21-week2/",
+  "image": "https://yuzzzi67.github.io/img/1.png",
+  "datePublished": "2026-09-21T20:00:00.000Z",
+  "dateModified": "2026-09-24T14:34:16.109Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yuzzzi",
+      "url": "https://Yuzzzi67.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yuzzzi67.github.io/2026/09/21/2026-09-21-week2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Week2周报（一）',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Yuzzzi</span></a><a class="nav-page-title" href="/"><span class="site-name">Week2周报（一）</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Week2周报（一）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-09-21T20:00:00.000Z" title="Created 2026-09-21 20:00:00">2026-09-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-09-24T14:34:16.109Z" title="Updated 2026-09-24 14:34:16">2026-09-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>一.记录</p>
+<ol>
+<li>Linux环境搭建：经历了WSL报错（证书无效）、避开流氓下载站陷阱后，<br>成功使用VirtualBox在Windows上安装了Ubuntu 22.04.5 LTS系统。<br>学会了拍快照（纯净初始状态），掌握了基本的Linux命令（whoami, pwd, ls, sudo apt update）。</li>
+</ol>
+<p><img src="/../../img/2.png" alt="Linux环境搭建"></p>
+<ol start="2">
+<li>Docker环境安装：成功使用 sudo apt install -y docker.io 安装Docker，并通过 docker –version 和 docker info 验证引擎正常运行。理解了镜像、容器、仓库的核心概念。</li>
+</ol>
+<p>二. 踩坑</p>
+<p>· 踩坑1：WSL安装证书错误，然后到VirtualBox。<br>· 踩坑2：VirtualBox增强功能因为缺少 gcc-12 编译依赖报错。尝试安装 build-essential 后仍未成功。<br>· 踩坑3：运行 docker run hello-world 时，因国内网络限制卡在拉取镜像。<br>· 反思：虚拟机的增强功能仅用于鼠标无缝切换和共享剪贴板，Docker拉取镜像仅为了跑通测试。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://Yuzzzi67.github.io">Yuzzzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://yuzzzi67.github.io/2026/09/21/2026-09-21-week2/">https://yuzzzi67.github.io/2026/09/21/2026-09-21-week2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></div><div class="post-share"><div class="social-share" data-image="/img/1.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/09/22/sql/" title="sql注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">sql注入</div></div><div class="info-2"><div class="info-item-1">一思考sql注入理解1.该漏洞是怎么产生的？:后端代码未对用户输入做过滤，直接拼接SQL语句执行2.有什么样的危害？:绕过登录、拖取数据库敏感信息、甚至获取服务器权限3.如何发现？:输入单引号 ‘ 看是否报错；输入 and 1&#x3D;1 和 and 1&#x3D;2 看页面回显差异4.如何利用?:包括联合查询注入（Union）、报错注入、布尔盲注、时间盲注等5. 防御方式?:最佳方案是使用预编译，加上白名单过滤6.绕过方式？：大小写混合、内联注释、编码二靶场实战记录（本地环境踩坑：在Ubuntu本地尝试SQLi-Labs时，遇到了PHP8.1与旧版源码兼容问题，导致只能显示welcome 第一步：测试正常回显在输入框里输入：1 第二步：判断字段数输入：1 order by 2 把输入框改成：1 order by 3 第三步：获取回显位所以判断出字段数是 2，输入-1 union select 1,2 第四步：爆出数据库名改成：-1 union select 1,database() 第五步：拿到 Flag改成-1 union select 1,flag from flag </div></div></div></a><a class="pagination-related" href="/2026/09/18/%E5%AD%A6%E4%BC%9A%E5%9F%BA%E7%A1%80markdown%E8%AF%AD%E6%B3%95/" title="学习记录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">学习记录</div></div><div class="info-2"><div class="info-item-1">2026萌新计划Web - Week1 学习记录 本节主要学习 HTTP 协议基础、Burp Suite 抓包以及前端三件套。  1. HTTP 协议学习1.1 GET 与 POST 请求的区别 GET 请求通常用于获取数据，参数在 URL 中可见。 POST 请求通常用于提交数据，参数在请求体中。  1.2 常见状态码   状态码 含义    200 请求成功   302 重定向   403 禁止访问   404 未找到   500 服务器内部错误   2. Burp Suite 初体验2.1 抓取浏览器请求https://imgchr.com/i/pnMBySP 2.2 常用模块功能 Proxy: 拦截和修改请求。 Repeater: 重放请求。  3. 本地 Flask 登录页面实战3.1 后端代码 (app.py)https://imgchr.com/i/pnMkJJKhttps://imgchr.com/i/pnMkGi6https://imgchr.com/i/pnMk3Ix from flask import Flask, request, render_templ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Yuzzzi</div><div class="author-info-description">记录碎碎念和我的日常学习</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Yuzzzi67"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/24/sql%20practice/" title="练习">练习</a><time datetime="2026-09-24T22:00:00.000Z" title="Created 2026-09-24 22:00:00">2026-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/22/sql/" title="sql注入">sql注入</a><time datetime="2026-09-22T22:00:00.000Z" title="Created 2026-09-22 22:00:00">2026-09-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/21/2026-09-21-week2/" title="Week2周报（一）">Week2周报（一）</a><time datetime="2026-09-21T20:00:00.000Z" title="Created 2026-09-21 20:00:00">2026-09-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/18/%E5%AD%A6%E4%BC%9A%E5%9F%BA%E7%A1%80markdown%E8%AF%AD%E6%B3%95/" title="学习记录">学习记录</a><time datetime="2026-09-18T21:36:16.000Z" title="Created 2026-09-18 21:36:16">2026-09-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/18/%E6%B2%A1%E7%94%A8%E7%9A%84%E7%A2%8E%E7%A2%8E%E5%BF%B5/" title="没用的碎碎念">没用的碎碎念</a><time datetime="2026-09-18T12:00:00.000Z" title="Created 2026-09-18 12:00:00">2026-09-18</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Yuzzzi</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.0"></script><script src="/js/main.js?v=5.7.0"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
